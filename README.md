@@ -1,1 +1,94 @@
-# Kelulusan-SMK
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pengumuman Kelulusan SMK</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f2f2f2;
+      margin: 0;
+      padding: 0;
+      text-align: center;
+    }
+    header {
+      background-color: #003366;
+      color: white;
+      padding: 20px 0;
+    }
+    main {
+      padding: 30px;
+    }
+    .search-box {
+      margin-top: 20px;
+    }
+    input[type="text"] {
+      padding: 10px;
+      width: 250px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+    button {
+      padding: 10px 15px;
+      background-color: #003366;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      margin-left: 10px;
+      cursor: pointer;
+    }
+    .result {
+      margin-top: 30px;
+      font-size: 18px;
+      color: green;
+    }
+    footer {
+      background-color: #003366;
+      color: white;
+      padding: 10px 0;
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Pengumuman Kelulusan SMK 2024</h1>
+    <p>Silakan masukkan NIS untuk melihat status kelulusan</p>
+  </header>
+  <main>
+    <div class="search-box">
+      <input type="text" id="nis" placeholder="Masukkan NIS...">
+      <button onclick="cekKelulusan()">Cek</button>
+    </div>
+    <div class="result" id="result"></div>
+  </main>
+  <footer>
+    &copy; 2024 SMK Negeri Contoh. Semua Hak Dilindungi.
+  </footer>
+
+  <script>
+    const dataKelulusan = {
+      "123456": "LULUS",
+      "234567": "TIDAK LULUS",
+      "345678": "LULUS",
+      "456789": "LULUS"
+    };
+
+    function cekKelulusan() {
+      const nis = document.getElementById("nis").value;
+      const hasil = dataKelulusan[nis];
+      const resultBox = document.getElementById("result");
+      if (hasil) {
+        resultBox.innerText = `Siswa dengan NIS ${nis} dinyatakan ${hasil}`;
+        resultBox.style.color = hasil === "LULUS" ? "green" : "red";
+      } else {
+        resultBox.innerText = "NIS tidak ditemukan. Mohon periksa kembali.";
+        resultBox.style.color = "orange";
+      }
+    }
+  </script>
+</body>
+</html>
